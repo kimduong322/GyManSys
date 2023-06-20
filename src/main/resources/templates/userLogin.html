@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="gym-management-system"/>
     <meta name="author" content="MiloTnT"/>
-    <title>健身房管理系统-会员登录</title>
+    <title>Gym Management System-Login</title>
     <link href="/static/css/styles.css" th:href="@{css/styles.css}" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
             crossorigin="anonymous"></script>
     <script type="text/javascript">
         function checkSubmit(loginForm) {
             if (loginForm.memberAccount.value == '') {
-                alert("请输入账号");
+                alert("Username cannot be left blank!");
                 loginForm.memberAccount.focus();
                 return false;
             }
             if (loginForm.memberPassword.value == '') {
-                alert("请输入密码");
+                alert("Passwword cannot be left blank!");
                 loginForm.memberPassword.focus();
                 return false;
             }
@@ -35,30 +35,37 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
-                            <div class="card-header"><h3 class="text-center font-weight-light my-4">会员登录</h3></div>
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4">User Login</h3></div>
                             <div class="card-body">
                                 <form th:action="@{/userLogin}" method="post" name="loginForm"
                                       onsubmit="return checkSubmit(this)">
+                                    <!-- input for user name -->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="inputAccount" name="memberAccount" type="account"
                                                placeholder="Account"
                                                onkeypress="return event.keyCode>=48&&event.keyCode<=57"/>
-                                        <label for="inputAccount">账号</label>
+                                        <label for="inputAccount">Account</label>
                                     </div>
+                                    
+                                    <!-- input for password -->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="inputPassword" name="memberPassword"
                                                type="password"
                                                placeholder="Password"/>
-                                        <label for="inputPassword">密码</label>
+                                        <label for="inputPassword">Password</label>
                                     </div>
+                                    
+                                    <!-- Input for remember account! -->
                                     <div class="form-check mb-3">
                                         <input class="form-check-input" id="inputRememberPassword" type="checkbox"
                                                value=""/>
-                                        <label class="form-check-label" for="inputRememberPassword">记住密码</label>
+                                        <label class="form-check-label" for="inputRememberPassword">Remember me</label>
                                     </div>
+                                    
+                                    <!-- Input for go to Admin Login page -->
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <input type="submit" class="btn btn-success" value="登录">
-                                        <a class="btn btn-primary" th:href="@{/}">转到管理员登录</a>
+                                        <input type="submit" class="btn btn-success" value="Login">
+                                        <a class="btn btn-primary" th:href="@{/}">Go to Admin Login Page</a>
                                     </div>
                                 </form>
                                 <div th:text="${msg}" style="margin-top: 20px;text-align: center;color: red"></div>
