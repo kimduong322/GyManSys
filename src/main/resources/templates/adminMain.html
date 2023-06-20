@@ -9,41 +9,41 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">管理员主页</h1>
+                <h1 class="mt-4">Admin Homepage</h1>
 
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">主页</li>
+                    <li class="breadcrumb-item active">Homepage</li>
                 </ol>
                 <div class="row">
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-primary text-white mb-4">
-                            <div class="card-body">健身房总人数</div>
+                            <div class="card-body">Total number of people</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <span class="small text-white" th:text="${humanTotal} + '人'"></span>
+                                <span class="small text-white" th:text="${humanTotal}"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-warning text-white mb-4">
-                            <div class="card-body">员工人数</div>
+                            <div class="card-body">Number of employees</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <span class="small text-white" th:text="${employeeTotal} + '人'"></span>
+                                <span class="small text-white" th:text="${employeeTotal}"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-success text-white mb-4">
-                            <div class="card-body">会员人数</div>
+                            <div class="card-body">Number of members</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <span class="small text-white" th:text="${memberTotal} + '人'"></span>
+                                <span class="small text-white" th:text="${memberTotal}"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-danger text-white mb-4">
-                            <div class="card-body">器材数</div>
+                            <div class="card-body">Number of equipments</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <span class="small text-white" th:text="${equipmentTotal} + '件'"></span>
+                                <span class="small text-white" th:text="${equipmentTotal}"></span>
                             </div>
                         </div>
                     </div>
