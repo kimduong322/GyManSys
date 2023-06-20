@@ -15,7 +15,8 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author MiloTnT [milotntspace@gmail.com]
- * @date 2021/8/20
+ * @author DuongDK [daokimduong322@gmail.com]
+ * @date 2023
  */
 
 @Controller
@@ -30,50 +31,50 @@ public class LoginController {
     @Autowired
     private EquipmentService equipmentService;
 
-    //主页、跳转管理员登录页面
+    // Home-page, jump to administrator login page
     @RequestMapping("/")
     public String toAdminLogin() {
         return "adminLogin";
     }
 
-    //跳转会员登录页面
+    // Jump to member login page
     @RequestMapping("/toUserLogin")
     public String toUserLogin() {
         return "userLogin";
     }
 
-    //管理员登录
+    // admin login 
     @RequestMapping("/adminLogin")
     public String adminLogin(Admin admin, Model model, HttpSession session) {
         Admin admin1 = adminService.adminLogin(admin);
         if (admin1 != null) {
-            //会员人数
+            // number of members
             Integer memberTotal = memberService.selectTotalCount();
             model.addAttribute("memberTotal", memberTotal);
             session.setAttribute("memberTotal", memberTotal);
 
-            //员工人数
+            // Number of employees
             Integer employeeTotal = employeeService.selectTotalCount();
             model.addAttribute("employeeTotal", employeeTotal);
             session.setAttribute("employeeTotal", employeeTotal);
 
-            //健身房总人数
+            // Total number of people
             Integer humanTotal = memberTotal + employeeTotal;
             model.addAttribute("humanTotal", humanTotal);
             session.setAttribute("humanTotal", humanTotal);
 
-            //器材数
+            // Number of equipment
             Integer equipmentTotal = equipmentService.selectTotalCount();
             model.addAttribute("equipmentTotal", equipmentTotal);
             session.setAttribute("equipmentTotal", equipmentTotal);
 
             return "adminMain";
         }
-        model.addAttribute("msg", "您输入的账号或密码有误，请重新输入！");
+        model.addAttribute("msg", "The account or password you entered is wrong, please re-enter！");
         return "adminLogin";
     }
 
-    //会员登录
+    // User Login
     @RequestMapping("/userLogin")
     public String userLogin(Member member, Model model, HttpSession session) {
         Member member1 = memberService.userLogin(member);
@@ -82,11 +83,11 @@ public class LoginController {
             session.setAttribute("user", member1);
             return "userMain";
         }
-        model.addAttribute("msg", "您输入的账号或密码有误，请重新输入！");
+        model.addAttribute("msg", "The account or password you entered is wrong, please re-enter!");
         return "userLogin";
     }
 
-    //跳转管理员主页
+    // Jump to admin home page
     @RequestMapping("/toAdminMain")
     public String toAdminMain(Model model, HttpSession session) {
         Integer memberTotal = (Integer) session.getAttribute("memberTotal");
@@ -100,7 +101,7 @@ public class LoginController {
         return "adminMain";
     }
 
-    //跳转会员主页
+    // Jump to member home page
     @RequestMapping("/toUserMain")
     public String toUserMain(Model model, HttpSession session) {
         Member member = (Member) session.getAttribute("user");
