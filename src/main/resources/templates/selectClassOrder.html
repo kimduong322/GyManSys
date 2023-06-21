@@ -9,46 +9,46 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">报名信息</h1>
+                <h1 class="mt-4">Registration Information</h1>
 
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a th:href="@{/toAdminMain}">主页</a></li>
-                    <li class="breadcrumb-item"><a th:href="@{/class/selClass}">课程管理</a></li>
-                    <li class="breadcrumb-item active">报名信息</li>
+                    <li class="breadcrumb-item"><a th:href="@{/toAdminMain}">HomePage</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/class/selClass}">Course Management</a></li>
+                    <li class="breadcrumb-item active">Registration Information</li>
                 </ol>
 
                 <div class="card mb-4">
 
-                    <!--当classOrderList为空（该课程无人报名）时显示-->
+                    <!--Show when classOrderList is empty (no one is enrolled in the course)-->
                     <div th:if="${#lists.isEmpty(classOrderList)}">
                         <table class="table table-hover">
                             <tr>
-                                <td align="center">暂无报名信息！</td>
+                                <td align="center">No registration information yet!</td>
                             </tr>
                         </table>
                     </div>
 
-                    <!--当classOrderList不为空（该课程已有人报名）时显示-->
+                    <!--Show when classOrderList is not empty (the course is already enrolled)-->
                     <div th:if="${not #lists.isEmpty(classOrderList)}">
                         <table class="table table-hover">
                             <tr>
-                                <td text-align="center">课程编号：</td>
-                                <td th:text="${classOrderList[0].classId}">课程编号</td>
+                                <td text-align="center">Course Number：</td>
+                                <td th:text="${classOrderList[0].classId}">Course Number</td>
                             </tr>
 
                             <tr>
-                                <td text-align="center">课程名称：</td>
-                                <td th:text="${classOrderList[0].className}">课程名称</td>
+                                <td text-align="center">Course Name:</td>
+                                <td th:text="${classOrderList[0].className}">Course Name</td>
                             </tr>
                             <tr>
-                                <td text-align="center">开课时间：</td>
-                                <td th:text="${classOrderList[0].classBegin}">开课时间</td>
+                                <td text-align="center">Course Start Time:</td>
+                                <td th:text="${classOrderList[0].classBegin}">Course start time</td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><strong>报名会员：</strong></td>
+                                <td colspan="2"><strong>Enrolled Members:</strong></td>
                             </tr>
                             <tr th:each="order:${classOrderList}">
                                 <td th:text="${order.memberAccount}">无</td>
@@ -58,7 +58,7 @@
                     </div>
 
                     <a th:href="@{/class/selClass}" style="text-align:center;margin-top:10px;margin-bottom:20px">
-                        <input type="submit" class="btn btn-outline-secondary" value="返回">
+                        <input type="submit" class="btn btn-outline-secondary" value="Back">
                     </a>
                 </div>
             </div>

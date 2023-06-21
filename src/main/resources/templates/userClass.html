@@ -9,41 +9,41 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">我的课程</h1>
+                <h1 class="mt-4">My Courses</h1>
 
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a th:href="@{/toUserMain}">主页</a></li>
-                    <li class="breadcrumb-item active">我的课程</li>
+                    <li class="breadcrumb-item"><a th:href="@{/toUserMain}">HomePage</a></li>
+                    <li class="breadcrumb-item active">My Courses</li>
                 </ol>
 
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        课程信息表
+                        Course Information List
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th>编号</th>
-                                <th>名称</th>
-                                <th>时间</th>
-                                <th>教练</th>
-                                <th>操作</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Time</th>
+                                <th>Coach</th>
+                                <th>Operation</th>
                             </tr>
                             </thead>
 
                             <tbody>
                             <tr th:each="class:${classOrderList}">
-                                <td th:text="${class.classId}">编号</td>
-                                <td th:text="${class.className}">名称</td>
-                                <td th:text="${class.classBegin}">时间</td>
-                                <td th:text="${class.coach}">教练</td>
+                                <td th:text="${class.classId}">ID</td>
+                                <td th:text="${class.className}">Name</td>
+                                <td th:text="${class.classBegin}">Time</td>
+                                <td th:text="${class.coach}">Coach</td>
                                 <td>
                                     <a th:href="@{/user/delUserClass(classOrderId=${class.classOrderId})}"
                                        style="text-decoration: none">
                                         <input type="button" class="btn btn-sm btn-outline-danger"
-                                               onclick="return del()" value="退课">
+                                               onclick="return del()" value="Leave">
                                     </a>
                                 </td>
                             </tr>
@@ -60,7 +60,7 @@
 <div th:include="userCommon::common-scripts"></div>
 <script>
     function del() {
-        let msg = "确定要退课吗？";
+        let msg = "Are you sure you want to leave this class?";
         if (confirm(msg) == true) {
             return true;
         } else {

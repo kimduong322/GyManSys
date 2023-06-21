@@ -9,12 +9,12 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">添加课程</h1>
+                <h1 class="mt-4">Add Course</h1>
 
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a th:href="@{/toAdminMain}">主页</a></li>
-                    <li class="breadcrumb-item"><a th:href="@{/class/selClass}">课程管理</a></li>
-                    <li class="breadcrumb-item active">添加课程</li>
+                    <li class="breadcrumb-item"><a th:href="@{/toAdminMain}">HomePage</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/class/selClass}">Course Management</a></li>
+                    <li class="breadcrumb-item active">Add Course</li>
                 </ol>
 
                 <div class="card mb-4">
@@ -23,33 +23,33 @@
                           onsubmit="return beforeSubmit(this)">
                         <table class="table table-hover">
                             <tr>
-                                <td text-align="center">编号：</td>
-                                <td><input type="text" class="form-control" placeholder="4位编号" name="classId"></td>
+                                <td text-align="center">CourseID：</td>
+                                <td><input type="text" class="form-control" placeholder="4 digit number" name="classId"></td>
                             </tr>
 
                             <tr>
-                                <td text-align="center">名称：</td>
-                                <td><input type="text" class="form-control" placeholder="课程名称" name="className">
+                                <td text-align="center">Name：</td>
+                                <td><input type="text" class="form-control" placeholder="Course Title" name="className">
                                 </td>
                             </tr>
                             <tr>
-                                <td text-align="center">时间：</td>
-                                <td><input type="text" class="form-control" placeholder="xxxx年xx月xx日 00：00" name="classBegin">
+                                <td text-align="center">Time：</td>
+                                <td><input type="text" class="form-control" placeholder="dd/mm/yyyy hh:mm" name="classBegin">
                                 </td>
                             </tr>
                             <tr>
-                                <td text-align="center">时长：</td>
-                                <td><input type="text" class="form-control" placeholder="xx分钟" name="classTime">
+                                <td text-align="center">Duration：</td>
+                                <td><input type="text" class="form-control" placeholder="xx minutes" name="classTime">
                                 </td>
                             </tr>
                             <tr>
-                                <td text-align="center">教练：</td>
-                                <td><input type="text" class="form-control" placeholder="教练" name="coach">
+                                <td text-align="center">Coach：</td>
+                                <td><input type="text" class="form-control" placeholder="Coach" name="coach">
                                 </td>
                             </tr>
                         </table>
                         <div style="text-align:center;margin-top:20px;margin-bottom:20px">
-                            <input type="submit" class="btn btn-outline-success" value="添加">
+                            <input type="submit" class="btn btn-outline-success" value="ADD">
                         </div>
                     </form>
                 </div>
@@ -63,23 +63,23 @@
 <script type="text/javascript">
     function beforeSubmit(addForm) {
         if (addForm.classId.value == "") {
-            alert("请输入课程编号！")
+            alert("Please enter the course ID!")
             return false;
         }
         if (addForm.className.value == "") {
-            alert("请输入课程名称！")
+            alert("Please enter a course name！")
             return false;
         }
         if (addForm.classBegin.value == "") {
-            alert("请输入课程时间！")
+            alert("Please enter course time！")
             return false;
         }
         if (addForm.classTime.value == "") {
-            alert("请输入课程时长！")
+            alert("Please enter the duration of the course！")
             return false;
         }
         if (addForm.coach.value == "") {
-            alert("请输入教练！")
+            alert("Please enter coach！")
             return false;
         }
         return true;

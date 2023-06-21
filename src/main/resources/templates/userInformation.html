@@ -9,55 +9,55 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">个人信息</h1>
+                <h1 class="mt-4">Personal Information</h1>
 
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a th:href="@{/toUserMain}">主页</a></li>
-                    <li class="breadcrumb-item active">个人信息</li>
+                    <li class="breadcrumb-item"><a th:href="@{/toUserMain}">HomePage</a></li>
+                    <li class="breadcrumb-item active">Personal Information</li>
                 </ol>
 
                 <div class="card mb-4">
                     <table class="table table-hover">
                         <tr>
-                            <td text-align="center">会员账号/卡号：</td>
+                            <td text-align="center">Member Account Number/Card Number:</td>
                             <td th:text="${member.memberAccount}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">姓名：</td>
+                            <td text-align="center">Name：</td>
                             <td th:text="${member.memberName}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">性别：</td>
+                            <td text-align="center">Gender：</td>
                             <td th:text="${member.memberGender}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">年龄：</td>
+                            <td text-align="center">Age：</td>
                             <td th:text="${member.memberAge}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">联系方式：</td>
+                            <td text-align="center">Contact Information：</td>
                             <td th:text="${member.memberPhone}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">身高：</td>
+                            <td text-align="center">Height：</td>
                             <td th:text="${member.memberHeight}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">体重：</td>
+                            <td text-align="center">Weight：</td>
                             <td th:text="${member.memberWeight}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">办卡时间：</td>
+                            <td text-align="center">CardTime：</td>
                             <td th:text="${member.cardTime}"></td>
                         </tr>
                         <tr>
-                            <td text-align="center">剩余课时：</td>
+                            <td text-align="center">Card Next Class：</td>
                             <td th:text="${member.cardNextClass}"></td>
                         </tr>
                     </table>
                     <div style="text-align:center;margin-bottom:15px">
                         <a th:href="@{/user/toUpdateInfo}">
-                            <input type="button" class="btn btn-outline-primary" value="编辑个人信息">
+                            <input type="button" class="btn btn-outline-primary" value="Update">
                         </a>
                     </div>
                 </div>

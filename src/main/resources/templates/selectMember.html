@@ -9,57 +9,57 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">会员管理</h1>
+                <h1 class="mt-4">Member Management</h1>
 
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a th:href="@{/toAdminMain}">主页</a></li>
-                    <li class="breadcrumb-item active">会员管理</li>
+                    <li class="breadcrumb-item"><a th:href="@{/toAdminMain}">HomePage</a></li>
+                    <li class="breadcrumb-item active">Member Management</li>
                 </ol>
 
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        会员信息表
+                        Member Information List
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th>会员账号/卡号</th>
-                                <th>姓名</th>
-                                <th>办卡时间</th>
-                                <th>性别</th>
-                                <th>年龄</th>
-                                <th>联系方式</th>
-                                <th>身高</th>
-                                <th>体重</th>
-                                <th>购买课时</th>
-                                <th>剩余课时</th>
-                                <th>操作</th>
+                                <th>Member Account/Card Number</th>
+                                <th>Name</th>
+                                <th>Card Time</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Contact Information</th>
+                                <th>Height</th>
+                                <th>Weight</th>
+                                <th>Card Class</th>
+                                <th>Card Next Class</th>
+                                <th>Operation</th>
                             </tr>
                             </thead>
 
                             <tbody>
                             <tr th:each="mem:${memberList}">
-                                <td th:text="${mem.memberAccount}">会员账号/卡号</td>
-                                <td th:text="${mem.memberName}">姓名</td>
-                                <td th:text="${mem.cardTime}">办卡时间</td>
-                                <td th:text="${mem.memberGender}">性别</td>
-                                <td th:text="${mem.memberAge}">年龄</td>
-                                <td th:text="${mem.memberPhone}">联系方式</td>
-                                <td th:text="${mem.memberHeight}">身高</td>
-                                <td th:text="${mem.memberWeight}">体重</td>
-                                <td th:text="${mem.cardClass}">购买课时</td>
-                                <td th:text="${mem.cardNextClass}">剩余课时</td>
+                                <td th:text="${mem.memberAccount}">Member Account/Card Number</td>
+                                <td th:text="${mem.memberName}">Name</td>
+                                <td th:text="${mem.cardTime}">Card Time</td>
+                                <td th:text="${mem.memberGender}">Gender</td>
+                                <td th:text="${mem.memberAge}">Age</td>
+                                <td th:text="${mem.memberPhone}">Phone Number</td>
+                                <td th:text="${mem.memberHeight}">Height</td>
+                                <td th:text="${mem.memberWeight}">Weight</td>
+                                <td th:text="${mem.cardClass}">Card Class</td>
+                                <td th:text="${mem.cardNextClass}">Card Next Class</td>
                                 <td>
                                     <a th:href="@{/member/toUpdateMember(memberAccount=${mem.memberAccount})}"
                                        style="text-decoration: none">
-                                        <input type="button" class="btn btn-sm btn-outline-primary" value="编辑">
+                                        <input type="button" class="btn btn-sm btn-outline-primary" value="Update">
                                     </a>
                                     <a th:href="@{/member/delMember(memberAccount=${mem.memberAccount})}"
                                        style="text-decoration: none">
                                         <input type="button" class="btn btn-sm btn-outline-danger"
-                                               onclick="return del()" value="删除">
+                                               onclick="return del()" value="Delete">
                                     </a>
                                 </td>
                             </tr>
@@ -69,7 +69,7 @@
                 </div>
                 <div style="text-align:center;margin-top:20px;margin-bottom:20px">
                     <a th:href="@{/member/toAddMember}">
-                        <input type="button" class="btn btn-outline-success" value="添加会员信息">
+                        <input type="button" class="btn btn-outline-success" value="Add Member Information">
                     </a>
                 </div>
             </div>
@@ -81,7 +81,7 @@
 <div th:include="adminCommon::common-scripts"></div>
 <script>
     function del() {
-        let msg = "确定要删除吗？";
+        let msg = "Are you sure you want to delete it?";
         if (confirm(msg) == true) {
             return true;
         } else {
